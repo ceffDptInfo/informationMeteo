@@ -25,7 +25,7 @@ jQuery(document).ready(function ($) {
             $id_webRa = this.id;
             $.post(
                 '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
-                    Date.now(),
+                Date.now(),
                 {
                     id_webRa: $id_webRa
                 }
@@ -43,7 +43,7 @@ jQuery(document).ready(function ($) {
             $id_webCh = this.id;
             $.post(
                 '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
-                    Date.now(),
+                Date.now(),
                 {
                     id_webCh: $id_webCh,
                     chWeb: $checkInAc
@@ -88,7 +88,7 @@ jQuery(document).ready(function ($) {
                 $installIdCheced = this.id;
                 $.post(
                     '../wp-content/plugins/informationMeteo/json/installation.json.php?_=' +
-                        Date.now(),
+                    Date.now(),
                     {
                         ch: $checkInAc,
                         last_id_ins: $installIdCheced,
@@ -100,7 +100,7 @@ jQuery(document).ready(function ($) {
             $installIdCheced = this.id;
             $.post(
                 '../wp-content/plugins/informationMeteo/json/installation.json.php?_=' +
-                    Date.now(),
+                Date.now(),
                 {
                     ch: $checkInAc,
                     last_id_ins: $installIdCheced,
@@ -156,7 +156,7 @@ jQuery(document).ready(function ($) {
             console.log('Formulaire envoyé');
             $.post(
                 '../wp-content/plugins/informationMeteo/json/meteo.json.php?_=' +
-                    Date.now(),
+                Date.now(),
                 {
                     date_bul: $('#datePicker').val(),
                     heure_bul: $('#timeInput').val(),

@@ -46,6 +46,7 @@ function creationDatabaseEnDure()
     require_once($path . 'bs_bulletin.php');
     require_once($path . 'bs_installations_active.php');
 }
+
 register_activation_hook(__FILE__, 'creationDatabaseEnDure');
 
 function remove_chasseralSnow_db()
@@ -61,6 +62,7 @@ function remove_chasseralSnow_db()
     $sql = "DROP TABLE IF EXISTS $table_name1, $table_name2, $table_name3, $table_name4, $table_name5, $table_name6, $table_name7";
     $wpdb->query($sql);
 }
+
 register_deactivation_hook(__FILE__, 'remove_chasseralSnow_db');
 
 //////////////////////////////////
@@ -81,6 +83,7 @@ function stylePageCss()
 {
     wp_enqueue_style('pageStyleCss', plugin_dir_url(__FILE__) . 'css/style.css', array(), '1.0.0', '');
 }
+
 add_action('wp_enqueue_scripts', 'stylePageCss');
 
 //load la page wp-load.php
@@ -97,20 +100,19 @@ function action_chasseralSnow_temperature()
             SELECT temperature_bul FROM {$wpdb->prefix}bs_bulletin ORDER BY id_bul DESC LIMIT 1
 SQL;
     $result_bul = $wpdb->get_var($query);
-?>
+    ?>
     <div>
-        <label>
-            <?php echo $result_bul;
-            if ($result_bul) {
+        <?php echo $result_bul;
+        if ($result_bul) {
             ?>
-                °C
+            °C
             <?php
-            }
-            ?>
-        </label>
+        }
+        ?>
     </div>
-<?php
+    <?php
 }
+
 add_action('action_chasseralSnow_temp', 'action_chasseralSnow_temperature');
 
 function chasseralSnowMeteoChangeurPluginDashboard()

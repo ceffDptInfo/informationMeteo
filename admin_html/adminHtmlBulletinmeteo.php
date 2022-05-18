@@ -31,7 +31,7 @@ $result_web = $wpdb->get_results($queryWebcam);
 <div class="divlaInDate">
     <!--    choisisseur des dates-->
     <label id="dateLa"> Choisir une date : </label>
-    <input name="datePicker" type="text" id="datePicker">
+    <input name="datePicker" type="text" id="datePicker" readonly="readonly">
 
     <!--     Bouton pour ouvrir le modal des gestions des webcams -->
     <button type="button" class="btn btn-outline-primary webcamButModAr" data-toggle="modal" data-target="#gestionWebcamModal">
