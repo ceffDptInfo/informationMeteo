@@ -11,25 +11,25 @@ $wpdb->query($sql);
 $sql = "CREATE TABLE  $table_name(
         id_met mediumint(9) NOT NULL ,
         etat_met VARCHAR(30),
-        UNIQUE KEY id (id_met)                                                                                                                                                                                                   
+        UNIQUE KEY id (id_met)
     )";
 $wpdb->query($sql);
 
 
 //table pour ajouter les état des meteo
 $meteoArray = array(
-    "0"=>"veuillez sélectionner",
-    "1"=>"Pluie",
-    "2"=>"Neige",
-    "3"=>"Nuageux",
-    "4"=>"Brouillard",
-    "5"=>"Peu nuageux",
-    "6"=>"Nuageux avec éclaircies",
-    "7"=>"Brouillard très bas",
-    "8"=>"Soleil",
-    "9"=>"Indéterminée"
+    "0" => "veuillez sélectionner",
+    "1" => "Pluie",
+    "2" => "Neige",
+    "3" => "Nuageux",
+    "4" => "Brouillard",
+    "5" => "Peu nuageux",
+    "6" => "Nuageux avec éclaircies",
+    "7" => "Brouillard très bas",
+    "8" => "Soleil",
+    "9" => "Indéterminée"
 );
 
-foreach ($meteoArray as $key => $etat){
+foreach ($meteoArray as $key => $etat) {
     $wpdb->insert($table_name, array('id_met' => $key, 'etat_met' => $etat));
 }

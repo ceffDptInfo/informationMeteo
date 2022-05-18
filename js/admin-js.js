@@ -1,98 +1,120 @@
 jQuery(document).ready(function ($) {
-    $('#datePicker').datepicker({
-        dateFormat: 'dd.mm.yy',
-    }).datepicker("setDate", 'now');
+    $('#datePicker')
+        .datepicker({
+            dateFormat: 'dd.mm.yy'
+        })
+        .datepicker('setDate', 'now');
 
     var str = $('#datePicker').val();
     var d = new Date();
-    var strDate = String(d.getDate()).padStart(2, "0") + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + d.getFullYear();
+    var strDate =
+        String(d.getDate()).padStart(2, '0') +
+        '.' +
+        String(d.getMonth() + 1).padStart(2, '0') +
+        '.' +
+        d.getFullYear();
     if (str == strDate) {
-        $('#meteoSelect').val(0)
-        $('#pistesSelect').val(0)
-        $('#neigeSelect').val(0)
+        $('#meteoSelect').val(0);
+        $('#pistesSelect').val(0);
+        $('#neigeSelect').val(0);
     }
 
-    $('.radioWebClass').children().on("change", function () {
-        $id_webRa = this.id;
-        $.post(
-            "../wp-content/plugins/informationMeteo/json/webcam.json.php?_=" + Date.now(), {
-                id_webRa: $id_webRa,
-            }
-        )
-    })
+    $('.radioWebClass')
+        .children()
+        .on('change', function () {
+            $id_webRa = this.id;
+            $.post(
+                '../wp-content/plugins/pluignInformationMeteo/json/webcam.json.php?_=' +
+                    Date.now(),
+                {
+                    id_webRa: $id_webRa
+                }
+            );
+        });
 
-    $(".checkBoxWebClass").children().on("click", function () {
-        if ($(this).is(":checked")) {
-            $checkInAc = "checked";
-        } else {
-            $checkInAc = "notChecked";
-        }
-        $id_webCh = this.id;
-        $.post(
-            "../wp-content/plugins/informationMeteo/json/webcam.json.php?_=" + Date.now(), {
-                id_webCh: $id_webCh,
-                chWeb: $checkInAc,
+    $('.checkBoxWebClass')
+        .children()
+        .on('click', function () {
+            if ($(this).is(':checked')) {
+                $checkInAc = 'checked';
+            } else {
+                $checkInAc = 'notChecked';
             }
-        )
-    })
+            $id_webCh = this.id;
+            $.post(
+                '../wp-content/plugins/pluignInformationMeteo/json/webcam.json.php?_=' +
+                    Date.now(),
+                {
+                    id_webCh: $id_webCh,
+                    chWeb: $checkInAc
+                }
+            );
+        });
 
-    $('#datePicker').on("change", function () {
+    $('#datePicker').on('change', function () {
         var str = $('#datePicker').val();
         var d = new Date();
-        var strDate = String(d.getDate()).padStart(2, "0") + "." + String(d.getMonth() + 1).padStart(2, "0") + "." + d.getFullYear();
+        var strDate =
+            String(d.getDate()).padStart(2, '0') +
+            '.' +
+            String(d.getMonth() + 1).padStart(2, '0') +
+            '.' +
+            d.getFullYear();
         if (str == strDate) {
-            $(".checkBoxInstallationInput").attr("disabled", false);
+            $('.checkBoxInstallationInput').attr('disabled', false);
         } else {
-            $(".checkBoxInstallationInput").attr("disabled", true);
+            $('.checkBoxInstallationInput').attr('disabled', true);
         }
     });
 
-
-    $(".checkBoxInstallationInput").on("click", function () {
-        if ($(this).is(":checked")) {
-            $checkInAc = "checked";
+    $('.checkBoxInstallationInput').on('click', function () {
+        if ($(this).is(':checked')) {
+            $checkInAc = 'checked';
             if (this.id == 0) {
                 $('.checkBoxInstallationInput').each(function () {
-                    $(".checkBoxInstallationInput").prop('checked', true);
-                })
+                    $('.checkBoxInstallationInput').prop('checked', true);
+                });
             }
         } else {
-            $checkInAc = "notChecked";
+            $checkInAc = 'notChecked';
             if (this.id == 0) {
                 $('.checkBoxInstallationInput').each(function () {
-                    $(".checkBoxInstallationInput").prop('checked', false);
-                })
+                    $('.checkBoxInstallationInput').prop('checked', false);
+                });
             }
         }
         if (this.id == 0) {
             $('.checkBoxInstallationInput').each(function () {
                 $installIdCheced = this.id;
                 $.post(
-                    "../wp-content/plugins/informationMeteo/json/installation.json.php?_=" + Date.now(), {
+                    '../wp-content/plugins/pluignInformationMeteo/json/installation.json.php?_=' +
+                        Date.now(),
+                    {
                         ch: $checkInAc,
                         last_id_ins: $installIdCheced,
-                        date_ins: $("#datePicker").val(),
+                        date_ins: $('#datePicker').val()
                     }
-                )
-            })
-        }else{
+                );
+            });
+        } else {
             $installIdCheced = this.id;
             $.post(
-                "../wp-content/plugins/informationMeteo/json/installation.json.php?_=" + Date.now(), {
+                '../wp-content/plugins/pluignInformationMeteo/json/installation.json.php?_=' +
+                    Date.now(),
+                {
                     ch: $checkInAc,
                     last_id_ins: $installIdCheced,
-                    date_ins: $("#datePicker").val(),
+                    date_ins: $('#datePicker').val()
                 }
-            )
+            );
         }
-    })
+    });
 
-    $.validator.addMethod("valueNotEquals", function (value, element, arg) {
+    $.validator.addMethod('valueNotEquals', function (value, element, arg) {
         return arg !== value;
     });
 
-
-    $("#meteoBulletinForm").validate({
+    $('#meteoBulletinForm').validate({
         debug: true,
         rules: {
             timeInput: {
@@ -101,52 +123,53 @@ jQuery(document).ready(function ($) {
             tempInputName: {
                 required: true,
                 min: -50,
-                max: 50,
+                max: 50
             },
-            meteoSelect: {valueNotEquals: "0"},
-            pistesSelect: {valueNotEquals: "0"},
-            neigeSelect: {valueNotEquals: "0"},
+            meteoSelect: {valueNotEquals: '0'},
+            pistesSelect: {valueNotEquals: '0'},
+            neigeSelect: {valueNotEquals: '0'},
 
             txtInput: {
                 minlength: 2,
-                maxlength: 255,
+                maxlength: 255
             }
-        }, messages: {
+        },
+        messages: {
             timeInput: {
-                required: "Veuillez saisir une heure"
+                required: 'Veuillez saisir une heure'
             },
             tempInputName: {
-                required: "Veuillez saisir une temperateur",
-                min: "la température minimum est -50°C",
-                max: "la température maximum est 50°C"
+                required: 'Veuillez saisir une temperateur',
+                min: 'la température minimum est -50°C',
+                max: 'la température maximum est 50°C'
             },
-            meteoSelect: {valueNotEquals: "veuillez sélectionner"},
-            pistesSelect: {valueNotEquals: "veuillez sélectionner"},
-            neigeSelect: {valueNotEquals: "veuillez sélectionner"},
+            meteoSelect: {valueNotEquals: 'veuillez sélectionner'},
+            pistesSelect: {valueNotEquals: 'veuillez sélectionner'},
+            neigeSelect: {valueNotEquals: 'veuillez sélectionner'},
             txtInput: {
-                minlength: "Veuillez saisir plus que 2 caractère",
-                maxlength: "Veuillez saisir mois de 255 caractère"
+                minlength: 'Veuillez saisir plus que 2 caractère',
+                maxlength: 'Veuillez saisir mois de 255 caractère'
             }
         },
 
         submitHandler: function (form) {
-            console.log("Formulaire envoyé");
+            console.log('Formulaire envoyé');
             $.post(
-                "../wp-content/plugins/informationMeteo/json/meteo.json.php?_=" + Date.now(), {
-                    date_bul: $("#datePicker").val(),
-                    heure_bul: $("#timeInput").val(),
-                    temperature_bul: $("#tempInput").val(),
-                    id_met: $("#meteoSelect").val(),
-                    id_pst: $("#pistesSelect").val(),
-                    id_nge: $("#neigeSelect").val(),
-                    id_web: $("#webcamSelect").val(),
-                    texte_bul: $("#txtInput").val(),
+                '../wp-content/plugins/pluignInformationMeteo/json/meteo.json.php?_=' +
+                    Date.now(),
+                {
+                    date_bul: $('#datePicker').val(),
+                    heure_bul: $('#timeInput').val(),
+                    temperature_bul: $('#tempInput').val(),
+                    id_met: $('#meteoSelect').val(),
+                    id_pst: $('#pistesSelect').val(),
+                    id_nge: $('#neigeSelect').val(),
+                    id_web: $('#webcamSelect').val(),
+                    texte_bul: $('#txtInput').val()
                 }
-            )
-            alert("validation a été fait avec succès")
+            );
+            alert('validation a été fait avec succès');
             location.reload();
         }
-    })
-
-
-})
+    });
+});
