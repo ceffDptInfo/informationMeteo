@@ -1,11 +1,11 @@
-#meteoBulletinForm{
-    margin-left: 5%;
+.row{
+    margin-top: 10px;
 }
 
 #titleH1{
     background-color: red;
     margin: 30px;
-    margin-left: 0px;
+    margin-left: 0;
     padding: 30px;
     text-align: center;
     width: 100%;
@@ -54,7 +54,7 @@
     background-color: red;
     border: solid 1px red;
     border-radius: 16px;
-    padding: 10px 0px 10px 0px;
+    padding: 10px 0 10px 0;
     margin-left: 25%;
     width: 50%;
 }

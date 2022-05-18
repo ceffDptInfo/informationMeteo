@@ -39,7 +39,6 @@ $result_ins = $wpdb->get_results($query1);
             <div class="col-2">
                 <input class="form-check-input checkBoxInstallationInput" type="checkbox" id="0" value="0">
             </div>
-            <div><label>&nbsp;</label></div>
         </div>
         <?php
         foreach ($result_ins as $val) {
@@ -48,7 +47,6 @@ $result_ins = $wpdb->get_results($query1);
                 <div class="form-check form-switch col">
                     <label id="installationText" class="form-check-label"
                            for="<?= $val->id_ins ?>"><?= $val->nom_ins ?></label>
-                    <div><label>&nbsp;</label></div>
                 </div>
                 <div class="col-2">
                     <?php
@@ -63,7 +61,6 @@ $result_ins = $wpdb->get_results($query1);
                         <?php
                     }
                     ?>
-                    <div><label>&nbsp;</label></div>
                 </div>
             </div>
             <?php

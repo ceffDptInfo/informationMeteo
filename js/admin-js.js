@@ -30,6 +30,7 @@ jQuery(document).ready(function ($) {
                     id_webRa: $id_webRa
                 }
             );
+
         });
 
     $('.checkBoxWebClass')
@@ -172,4 +173,9 @@ jQuery(document).ready(function ($) {
             location.reload();
         }
     });
+
+    $('#gestionWebcamModal').on('hidden.bs.modal', function () {
+        location.reload();
+    })
+
 });

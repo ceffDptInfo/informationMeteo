@@ -62,7 +62,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <input name="timeInput" type="time" id="timeInput" class="form-control" value="07:30">
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!-- Choisisseur de température -->
         <div class="row">
@@ -76,7 +75,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <input name="tempInputName" type="number" id="tempInput" class="form-control">
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!--        Sélectionneur de l'état de météo-->
         <div class="row">
@@ -97,7 +95,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 </select>
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!-- Sélectionneur de l'état des pistes -->
         <div class="row">
@@ -116,7 +113,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 </select>
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!-- Sélectionneur de l'état de neige -->
         <div class="row">
@@ -137,7 +133,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 </select>
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!--        Sélectionneur des webcams-->
         <div class="row">
@@ -150,17 +145,23 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <select name="webcamSelect" id="webcamSelect">
                     <?php
                     foreach ($result_web as $val) {
-                        if ($val->act_web == 1) {
+                        if ($val->def_web==1) {
                     ?>
                             <option value="<?= $val->id_web ?>"><?= $val->nom_web ?></option>
                     <?php
+                        }
+                    }
+                    foreach ($result_web as $val) {
+                        if ($val->act_web == 1) {
+                            ?>
+                            <option value="<?= $val->id_web ?>"><?= $val->nom_web ?></option>
+                            <?php
                         }
                     }
                     ?>
                 </select>
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!--        saisisseur de texte-->
         <div class="row">
@@ -174,7 +175,6 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <input name="txtInput" type="text" id="txtInput" class="form-control">
             </div>
         </div>
-        <div><label>&nbsp;</label></div>
 
         <!--        Bouton de validation-->
         <div class="row">
