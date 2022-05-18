@@ -62,7 +62,7 @@ $result_web = $wpdb->get_results($queryWebcam);
                         </div>
                         <div class="col-1">
                             <?php if ($val->act_web == 1 && $val->def_web == 0) {?>
-                                <div class="form-check checkBoxWebClass">
+                                <div class="form-check checkBoxWebClass" id="testtttt">
                                     <input class="form-check-input <?php $val->id_web ?>" type="checkbox" value="" id="<?= $val->id_web ?>" checked>
                                 </div>
                             <?php }elseif ($val->def_web == 1 && $val->act_web == 0){ ?>

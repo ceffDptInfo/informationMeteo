@@ -6,10 +6,13 @@ header('Content-Type: application/json');
 $web = new Webcam();
 
 $id_webRa = $_POST["id_webRa"];
+$id_webRaChanged = $_POST["id_webRaChange"];
 $act = $_POST['chWeb'];
 $id_webCh = $_POST["id_webCh"];
 
-$web->modificationdef($id_webRa);
+if ($id_webRaChanged =="changed") {
+    $web->modificationDef($id_webRa);
+}
 
 if ($act == "checked"){
     $web->modificationAct($id_webCh);

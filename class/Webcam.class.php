@@ -25,25 +25,6 @@ class Webcam
         return $str;
     }
 
-    public function modificationdef($id_web)
-    {
-        $args['id_webRa'] = $id_web;
-        $query1 = "update wp_bs_webcam set `def_web` = 0 where `id_web` = (SELECT `id_web` FROM `wp_bs_webcam` WHERE `def_web` = 1)";
-        $query2 = "UPDATE wp_bs_webcam set `def_web` = 1 WHERE (`id_web`) = :id_webRa";
-        $query3 = "UPDATE wp_bs_webcam set `act_web` = 0 WHERE (`def_web`) = 1";
-        try {
-            $stmt = $this->pdo->prepare($query1);
-            $stmt2 = $this->pdo->prepare($query2);
-            $stmt3 = $this->pdo->prepare($query3);
-            $stmt->execute($args);
-            $stmt2->execute($args);
-            $stmt3->execute($args);
-        } catch (Exception $e) {
-            echo $e;
-            return false;
-        }
-    }
-
     public function modificationDesAct($id_web)
     {
         $args['id_webCh'] = $id_web;
@@ -70,6 +51,24 @@ class Webcam
         }
     }
 
+    public function modificationDef($id_web)
+    {
+        $args['id_webRa'] = $id_web;
+        $query1 = "update wp_bs_webcam set `def_web` = 0 where `id_web` = (SELECT `id_web` FROM `wp_bs_webcam` WHERE `def_web` = 1)";
+        $query2 = "UPDATE wp_bs_webcam set `def_web` = 1 WHERE (`id_web`) = :id_webRa";
+        $query3 = "UPDATE wp_bs_webcam set `act_web` = 0 WHERE (`def_web`) = 1";
+        try {
+            $stmt = $this->pdo->prepare($query1);
+            $stmt2 = $this->pdo->prepare($query2);
+            $stmt3 = $this->pdo->prepare($query3);
+            $stmt->execute($args);
+            $stmt2->execute($args);
+            $stmt3->execute($args);
+        } catch (Exception $e) {
+            echo $e;
+            return false;
+        }
+    }
 
     /**
      * @param mixed $id_web
