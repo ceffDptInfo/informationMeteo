@@ -1,0 +1,157 @@
+.content-meteo {
+    background-color: red;
+    padding: 10px;
+    width: fit-content;
+}
+
+.isActiveImg{
+    width: 20px;
+    height: 20px;
+}
+
+
+/*.content {*/
+/*    display: grid;*/
+/*    grid-template-columns: 0.5fr 1.5fr;*/
+/*    grid-template-rows: 0.5fr 1.5fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "img_urlWeb topRight"*/
+/*    "img_urlWeb bottomRight";*/
+/*    border: solid 2px red;*/
+/*    background-color: red;*/
+/*    padding: 2px;*/
+/*    gap: 5px;*/
+/*}*/
+/*.topRight {*/
+/*    display: grid;*/
+/*    grid-template-columns: 128px 1fr;*/
+/*    grid-template-rows: 1fr 1fr 1fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "la_heureBul la_dateBul"*/
+/*    "imgTem la_etatPst"*/
+/*    "imgTem la_etatNge";*/
+/*    grid-area: topRight;*/
+/*    background-color: white;*/
+/*    padding-left: 5px;*/
+/*    padding-top: 3px ;*/
+/*    line-height: 0.7;*/
+/*}*/
+/*.imgTem {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr 1fr;*/
+/*    grid-template-rows: 1fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "img_idMet la_temperatureBul";*/
+/*    grid-area: imgTem;*/
+/*}*/
+
+/*.bottomRight {*/
+/*    display: grid;*/
+/*    grid-template-columns: 100px 1fr;*/
+/*    grid-template-rows: 38px 75px;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "insTelski installation"*/
+/*    "insTelski installation";*/
+/*    grid-area: bottomRight;*/
+/*    background-color: white;*/
+/*    padding-left: 5px;*/
+/*    padding-top: 3px;*/
+/*    line-height: 0.7;*/
+/*}*/
+/*.insTelski {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr;*/
+/*    grid-template-rows: 20px 1fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "inst"*/
+/*    "img_imgeSkie";*/
+/*    grid-area: insTelski;*/
+/*}*/
+
+/*.installation {*/
+/*    display: grid;*/
+/*    grid-template-columns: 1fr;*/
+/*    grid-template-rows: 0.5fr;*/
+/*    gap: 0px 0px;*/
+/*    grid-template-areas:*/
+/*    "statusInstallation";*/
+/*    grid-area: installation;*/
+/*}*/
+
+/*.img_urlWeb{*/
+/*    grid-area: img_urlWeb;*/
+/*    margin: 0px;*/
+/*    width: 200px;*/
+/*}*/
+/*#imgId{*/
+/*    height: 180px;*/
+/*}*/
+/*.la_heureBul{*/
+/*    grid-area: la_heureBul;*/
+
+/*}*/
+/*.img_idMet{*/
+/*    grid-area: img_idMet;*/
+/*}*/
+/*.la_temperatureBul{*/
+/*    grid-area: la_temperatureBul;*/
+/*}*/
+/*.la_dateBul{*/
+/*    grid-area: la_dateBul;*/
+/*}*/
+/*.la_etatPst{*/
+/*    grid-area: la_etatPst;*/
+/*}*/
+/*.la_etatNge{*/
+/*    grid-area: la_etatNge;*/
+/*}*/
+/*.img_imageSkie{*/
+/*    grid-area: img_imgeSkie;*/
+/*}*/
+/*.inst{*/
+/*    grid-area: inst;*/
+/*}*/
+/*.teleskis{*/
+/*    grid-area: teleskis*/
+/*}*/
+
+/*.isActiveImg{*/
+/*    color: red;*/
+/*    width: 20px;*/
+/*    height: 20px;*/
+/*}*/
+
+/*.imageSkie{*/
+/*    width: 75px;*/
+/*    height: 75px;*/
+/*    margin: 5px 0px 0px 12px;*/
+/*}*/
+/*.statusInstallation{*/
+/*    grid-area: statusInstallation;*/
+/*}*/
+/*.nomInstallation{*/
+/*    grid-area: nomInstallation*/
+/*}*/
+/*.tableInstal{*/
+/*    width:100%;*/
+/*    display: inline-block;*/
+/*}*/
+/*.tableInstal td{*/
+/*    border: none;*/
+/*    padding: 0px;*/
+/*    max-width: 100%;*/
+/*}*/
+
+/*!* * * * *!*/
+/*.la_nomInstallation{*/
+/*    margin: 0px;*/
+/*}*/
+
+/*.la_temperateurClass{*/
+/*    margin-top: 12px;*/
+/*}*/

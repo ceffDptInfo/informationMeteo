@@ -1,0 +1,96 @@
+#meteoBulletinForm{
+    margin-left: 5%;
+}
+
+#titleH1{
+    background-color: red;
+    margin: 30px;
+    margin-left: 0px;
+    padding: 30px;
+    text-align: center;
+    width: 100%;
+}
+.divlaInDate{
+    margin-left: 25%;
+    margin-bottom: 5%;
+}
+
+#dateLa{
+    font-size: 25px;
+    font-weight: bold;
+}
+#datePicker{
+    box-sizing: border-box;
+    border-radius: 16px;
+}
+
+#meteoBulletinForm ,#installationsEtatForm{
+    margin-left: 10%;
+    width: 25%;
+    float: left;
+}
+#installationsForm{
+    width: 250px;
+}
+
+.bulletinInstallationTitreClass{
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 4px;
+    padding: 20px;
+
+
+}
+#BulletinMeteoId{
+    margin: 5px -20px  25px -20px;
+}
+
+.bulIcon{
+    width: 30px;
+    height: 30px;
+}
+
+#validerBulMet{
+    background-color: red;
+    border: solid 1px red;
+    border-radius: 16px;
+    padding: 10px 0px 10px 0px;
+    margin-left: 25%;
+    width: 50%;
+}
+
+#timeInput, #tempInput, #txtInput{
+    /*width: 21%;*/
+}
+#meteoSelect, #neigeSelect, #pistesSelect, #webcamSelect, #textinput{
+    width: 100%;
+}
+
+#installationText{
+    font-size: 20px;
+}
+
+.modal-body .geWebCamClass{
+    border: solid 1px red;
+    padding: 5px;
+}
+.modal-body .form-check{
+    margin-top: 15px;
+}
+
+.modal-dialog{
+    max-width: 600px;
+}
+
+
+.webcamButMod{
+    width: 30px;
+    height: 30px;
+    color: blue;
+
+}
+
+.webcamButModAr{
+    margin-left: 20px;
+    border-radius: 16px;
+}
