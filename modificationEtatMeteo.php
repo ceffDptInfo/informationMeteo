@@ -13,7 +13,7 @@
 //ajouter des fichiers css et js pour de modification dans la page d'administration de plugin
 function pluginStyle()
 {
-    wp_enqueue_style('stylesheet','https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css',false, '1.0.0');
+    wp_enqueue_style('stylesheet', 'https://code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css', false, '1.0.0');
     wp_enqueue_style('bootstrap_icons', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css', false, '1.0.0');
     wp_enqueue_style('chasseral_snow-bootstrap', 'https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css', array(), "5.1.3", 'all');
     wp_register_style('custom_wp_admin_css', plugin_dir_url(__FILE__) . 'css/admin-style.css', false, '1.0.0');
@@ -38,7 +38,7 @@ add_action('admin_enqueue_scripts', 'pluginStyle');
 //creation des table de la base de données aprés l'activation de plugin
 function creationDatabaseEnDure()
 {
-    $path = ABSPATH . 'wp-content/plugins/informationMeteo/dataBase/';
+    $path = ABSPATH . 'wp-content/plugins/pluignInformationMeteo/dataBase/';
     require_once($path . 'bs_meteo.php');
     require_once($path . 'bs_neige.php');
     require_once($path . 'bs_pistes.php');
@@ -107,6 +107,6 @@ add_action('admin_menu', 'chasseralSnowMeteoChangeurPluginDashboard');
 
 function chasseralSnowMeteoChangeur_admin_html()
 {
-    $path = ABSPATH . 'wp-content/plugins/informationMeteo/admin_html/';
+    $path = ABSPATH . 'wp-content/plugins/pluignInformationMeteo/admin_html/';
     require_once($path . 'adminHtml.php');
 }
