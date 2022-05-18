@@ -43,7 +43,7 @@ $result_web = $wpdb->get_results($queryWebcam);
 </div>
 
 <div>
-    <form method="post" action="/wp-content/plugins/pluignInformationMeteo/admin_html/function.php" id="meteoBulletinForm">
+    <form method="post" action="/wp-content/plugins/informationMeteo/admin_html/function.php" id="meteoBulletinForm">
         <div class="row">
             <div class="col">
                 <h2 id="BulletinMeteoId" class="bulletinInstallationTitreClass">Bulletin météo</h2>
