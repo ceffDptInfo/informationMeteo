@@ -38,7 +38,7 @@ add_action('admin_enqueue_scripts', 'pluginStyle');
 //creation des table de la base de données aprés l'activation de plugin
 function creationDatabaseEnDure()
 {
-    $path = ABSPATH . 'wp-content/plugins/pluignInformationMeteo/dataBase/';
+    $path = ABSPATH . 'wp-content/plugins/informationMeteo/dataBase/';
     require_once($path . 'bs_meteo.php');
     require_once($path . 'bs_neige.php');
     require_once($path . 'bs_pistes.php');
@@ -107,6 +107,6 @@ add_action('admin_menu', 'chasseralSnowMeteoChangeurPluginDashboard');
 
 function chasseralSnowMeteoChangeur_admin_html()
 {
-    $path = ABSPATH . 'wp-content/plugins/pluignInformationMeteo/admin_html/';
+    $path = ABSPATH . 'wp-content/plugins/informationMeteo/admin_html/';
     require_once($path . 'adminHtml.php');
 }

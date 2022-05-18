@@ -24,7 +24,7 @@ jQuery(document).ready(function ($) {
         .on('change', function () {
             $id_webRa = this.id;
             $.post(
-                '../wp-content/plugins/pluignInformationMeteo/json/webcam.json.php?_=' +
+                '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
                     Date.now(),
                 {
                     id_webRa: $id_webRa
@@ -42,7 +42,7 @@ jQuery(document).ready(function ($) {
             }
             $id_webCh = this.id;
             $.post(
-                '../wp-content/plugins/pluignInformationMeteo/json/webcam.json.php?_=' +
+                '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
                     Date.now(),
                 {
                     id_webCh: $id_webCh,
@@ -87,7 +87,7 @@ jQuery(document).ready(function ($) {
             $('.checkBoxInstallationInput').each(function () {
                 $installIdCheced = this.id;
                 $.post(
-                    '../wp-content/plugins/pluignInformationMeteo/json/installation.json.php?_=' +
+                    '../wp-content/plugins/informationMeteo/json/installation.json.php?_=' +
                         Date.now(),
                     {
                         ch: $checkInAc,
@@ -99,7 +99,7 @@ jQuery(document).ready(function ($) {
         } else {
             $installIdCheced = this.id;
             $.post(
-                '../wp-content/plugins/pluignInformationMeteo/json/installation.json.php?_=' +
+                '../wp-content/plugins/informationMeteo/json/installation.json.php?_=' +
                     Date.now(),
                 {
                     ch: $checkInAc,
@@ -155,7 +155,7 @@ jQuery(document).ready(function ($) {
         submitHandler: function (form) {
             console.log('Formulaire envoyé');
             $.post(
-                '../wp-content/plugins/pluignInformationMeteo/json/meteo.json.php?_=' +
+                '../wp-content/plugins/informationMeteo/json/meteo.json.php?_=' +
                     Date.now(),
                 {
                     date_bul: $('#datePicker').val(),
