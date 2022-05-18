@@ -90,20 +90,28 @@ require_once($path . '/wp-config.php');
 require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
 //do action temperature
-function shortcode_chasseralSnow_temperaturee(){
+function action_chasseralSnow_temperature()
+{
     global $wpdb;
     $query = <<<SQL
             SELECT temperature_bul FROM {$wpdb->prefix}bs_bulletin ORDER BY id_bul DESC LIMIT 1
 SQL;
-    $result_bul= $wpdb->get_var($query);
-
-
-    echo "<div>
-            <label> $result_bul ° </label>
-        </div>
-        ";
+    $result_bul = $wpdb->get_var($query);
+?>
+    <div>
+        <label>
+            <?php echo $result_bul;
+            if ($result_bul) {
+            ?>
+                °C
+            <?php
+            }
+            ?>
+        </label>
+    </div>
+<?php
 }
-add_action('shortcode_chasseralSnow_temm', 'shortcode_chasseralSnow_temperaturee');
+add_action('action_chasseralSnow_temp', 'action_chasseralSnow_temperature');
 
 function chasseralSnowMeteoChangeurPluginDashboard()
 {
@@ -125,5 +133,3 @@ function chasseralSnowMeteoChangeur_admin_html()
     $path = ABSPATH . 'wp-content/plugins/informationMeteo/admin_html/';
     require_once($path . 'adminHtml.php');
 }
-
-
