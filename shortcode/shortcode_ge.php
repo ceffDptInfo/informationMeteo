@@ -52,36 +52,32 @@ SQL;
         ob_start();
 
         foreach ($result as $val) { ?>
-            <article class="content-meteo gap-2 d-flex">
+            <article class="content-meteo gap-2 d-flex flex-column flex-xl-row">
                 <img height="250px" src="<?= $val->url_web ?>">
-                <section class="d-flex flex-row flex-grow-1">
-                    <section class="d-flex me-2 mb-1 p-2 gap-5 flex-column bg-white">
-                        <div class="flex-column">
-                            <p class="fw-bold"><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
+                <section class="d-flex flex-column flex-grow-1">
+                    <section class="d-flex mb-2 gap-2 flex-row bg-white">
+                        <div class="flex-row">
+                            <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
+                            <div>
+                                <img class="w-auto" src="<?= $path ?>imageMeteo/<?= $val->id_met ?>.png">
+                                <span><?= $val->temperature_bul ?>°</span>
+                            </div>
                         </div>
-                        <div class="fw-bold">
-                            Température :
-                            <span><?= $val->temperature_bul ?>°</span>
-                        </div>
-                        <div class="flex-column">
-                            <p class="mb-0 fw-bold"><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
-                            <p class="mb-0 fw-bold">État des pistes : <?= $val->etat_pst ?></p>
-                            <p class="mb-0 fw-bold">Enneigement : <?= $val->etat_nge ?></p>
+                        <div class="flex-row">
+                            <p><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
+                            <p>État des pistes : <?= $val->etat_pst ?></p>
+                            <p>Enneigement : <?= $val->etat_nge ?></p>
                         </div>
                     </section>
-                    <section class="d-flex flex-row flex-grow-1 bg-white mb-1">
-                        <div class="d-flex align-items-center me-2">
-                            <img height="150px" src="<?= $path ?>/imageIsActive/tsb.png">
+                    <section class="d-flex flex-column flex-xl-row bg-white">
+                        <div class="d-flex flex-row flex-xl-column">
+                            <div>Installations :</div>
+                            <img width="75px" height="75px" src="<?= $path ?>/imageIsActive/tsb.png">
                         </div>
-                        <table class="d-flex flex-column w-auto" cellspacing="0">
-                            <thead>
-                                <td>
-                                    Installations :
-                                </td>
-                            </thead>
+                        <table class="flex-grow-1" cellspacing="0">
                             <?php foreach (array_chunk($result1, 2) as $val) { ?>
-                                <?php foreach ($val as $v) { ?>
-                                    <tr>
+                                <tr>
+                                    <?php foreach ($val as $v) { ?>
                                         <td>
                                             <?php
                                             if ($v->isActive == 1) {
@@ -94,9 +90,10 @@ SQL;
                                             }
                                             ?>
                                         </td>
+                                        <td>&nbsp;</td>
                                         <td><?= $v->nom_ins ?></td>
-                                    </tr>
-                                <?php } ?>
+                                    <?php } ?>
+                                </tr>
                             <?php } ?>
                         </table>
                     </section>
