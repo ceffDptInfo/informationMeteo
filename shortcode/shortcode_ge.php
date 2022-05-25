@@ -55,8 +55,16 @@ SQL;
             <article class="content-meteo gap-2 d-flex flex-column flex-xl-row">
                 <img height="250px" src="<?= $val->url_web ?>">
                 <section class="d-flex flex-column flex-grow-1">
+                    <div class="d-flex d-xl-none mb-2 gap-2 flex-row bg-white">
+                        <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
+                        <p class="d-block d-xl-none"><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
+                        <div>
+                            <img class="w-auto" src="<?= $path ?>imageMeteo/<?= $val->id_met ?>.png">
+                            <span><?= $val->temperature_bul ?>°</span>
+                        </div>
+                    </div>
                     <section class="d-flex mb-2 gap-2 flex-row bg-white">
-                        <div class="flex-row">
+                        <div class="flex-row d-none d-xl-flex">
                             <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
                             <div>
                                 <img class="w-auto" src="<?= $path ?>imageMeteo/<?= $val->id_met ?>.png">
@@ -64,7 +72,7 @@ SQL;
                             </div>
                         </div>
                         <div class="flex-row">
-                            <p><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
+                            <p class="d-none d-xl-block"><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
                             <p>État des pistes : <?= $val->etat_pst ?></p>
                             <p>Enneigement : <?= $val->etat_nge ?></p>
                         </div>
