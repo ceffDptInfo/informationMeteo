@@ -53,9 +53,9 @@ SQL;
 
         foreach ($result as $val) { ?>
             <article class="content-meteo gap-2 d-flex flex-column flex-xl-row">
-                <img height="250px" src="<?= $val->url_web ?>">
+                <img src="<?= $val->url_web ?>">
                 <section class="d-flex flex-column flex-grow-1">
-                    <div class="d-flex d-xl-none mb-2 gap-2 flex-row bg-white">
+                    <div class="d-flex d-xl-none mb-2 p-1 gap-2 flex-row bg-white">
                         <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
                         <p class="d-block d-xl-none"><?= strftime('%A %d %B ', strtotime($val->date_bul)) ?></p>
                         <div>
@@ -63,7 +63,7 @@ SQL;
                             <span><?= $val->temperature_bul ?>°</span>
                         </div>
                     </div>
-                    <section class="d-flex mb-2 gap-2 flex-row bg-white">
+                    <section class="d-flex mb-2 p-1 gap-2 flex-row bg-white">
                         <div class="flex-row d-none d-xl-flex">
                             <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
                             <div>
@@ -77,7 +77,7 @@ SQL;
                             <p>Enneigement : <?= $val->etat_nge ?></p>
                         </div>
                     </section>
-                    <section class="d-flex flex-column flex-xl-row bg-white">
+                    <section class="d-flex flex-column p-1 flex-xl-row bg-white">
                         <div class="d-flex flex-row flex-xl-column">
                             <div>Installations :</div>
                             <img width="75px" height="75px" src="<?= $path ?>/imageIsActive/tsb.png">

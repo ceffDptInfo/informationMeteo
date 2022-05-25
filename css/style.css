@@ -7,6 +7,18 @@
     display: none;
 }
 
+.content-meteo>img {
+    min-height: 250px;
+    max-height: 1145px
+}
+
+@media screen and (min-width: 1200px) {
+    .content-meteo>img {
+        height: 250px;
+        width: auto;
+    }
+}
+
 .isActiveImg {
     width: 20px;
     height: 20px;
