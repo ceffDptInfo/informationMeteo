@@ -32,26 +32,23 @@ $result_ins = $wpdb->get_results($query1);
         <h2 class="bulletinInstallationTitreClass">Installations</h2>
 
 <!--    Le nom des installations avec un checkBox de chaque une    -->
-        <div class="row">
-            <div class="col">
-                <label id="installationText" class="form-check-label">Toutes les installations</label>
-            </div>
-            <div class="col-2">
-                <input class="form-check-input checkBoxInstallationInput" type="checkbox" id="0" value="0">
-            </div>
-        </div>
+<!--        <div class="row">-->
+<!--            <div class="col">-->
+<!--                <label id="installationText" class="form-check-label">Toutes les installations</label>-->
+<!--            </div>-->
+<!--            <div class="col-2">-->
+<!--                <input class="form-check-input checkBoxInstallationInput" type="checkbox" id="0" value="0">-->
+<!--            </div>-->
+<!--        </div>-->
         <?php
-        foreach ($result_ins as $val) {
-            ?>
+        foreach ($result_ins as $val) {?>
             <div class="row">
                 <div class="form-check form-switch col">
-                    <label id="installationText" class="form-check-label"
+                    <label id="installationText<?= $val->id_ins ?>" class="form-check-label installationTextClass"
                            for="<?= $val->id_ins ?>"><?= $val->nom_ins ?></label>
                 </div>
                 <div class="col-2">
-                    <?php
-                    if ($val->isActive == 1) {
-                        ?>
+                    <?php if ($val->isActive == 1) {?>
                         <input class="form-check-input checkBoxInstallationInput" type="checkbox"
                                id="<?= $val->id_ins ?>" checked>
                         <?php

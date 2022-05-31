@@ -16,7 +16,7 @@ $sql = "CREATE TABLE  $table_name(
 $wpdb->query($sql);
 
 $installationsArray = array(
-//    "0"=>"Toutes les installations",
+    "0"=>"Toutes les installations",
     "1"=>"Sava 1",
     "2"=>"Sava 2",
     "3"=>"Plan-Marmet",

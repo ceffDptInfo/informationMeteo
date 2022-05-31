@@ -81,6 +81,7 @@ jQuery(document).ready(function ($) {
                 $('.checkBoxInstallationInput').each(function () {
                     $('.checkBoxInstallationInput').prop('checked', true);
                 });
+                $('#this.id').prop('checked', true);
             }
         } else {
             $checkInAc = 'notChecked';
@@ -90,6 +91,7 @@ jQuery(document).ready(function ($) {
                 });
             }
         }
+
         if (this.id == 0) {
             $('.checkBoxInstallationInput').each(function () {
                 $installIdCheced = this.id;
@@ -114,6 +116,7 @@ jQuery(document).ready(function ($) {
                     date_ins: $('#datePicker').val()
                 }
             );
+            $('#0').prop('checked', false);
         }
     });
 
