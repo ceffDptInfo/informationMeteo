@@ -104,11 +104,10 @@ SQL;
     <span>
         <?php echo $result_bul;
         if ($result_bul) {
-        ?>
-            °C
-        <?php
+        ?>°C
+    <?php
         }
-        ?>
+    ?>
     </span>
 <?php
 }
