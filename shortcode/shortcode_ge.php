@@ -65,7 +65,7 @@ SQL;
                             <span><?= $val->temperature_bul ?>°</span>
                         </div>
                     </div>
-                    <section class="d-flex mb-2 p-1 gap-2 flex-row bg-white">
+                    <section class="d-flex mb-1 p-1 gap-2 flex-row bg-white">
                         <div class="flex-column d-none d-xl-flex">
                             <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
                             <div>
