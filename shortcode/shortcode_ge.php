@@ -94,12 +94,21 @@ SQL;
                             <img width="75px" height="75px" src="<?= $path ?>/imageIsActive/tsb.png">
                         </div>
                         <table class="flex-grow-1" cellspacing="0">
-                            <?php foreach (array_chunk($result1, 2) as $val) { ?>
-                                <tr>
-                                    <?php foreach ($val as $v) { ?>
+                            <?php
+                            $i = 0;
+                            foreach ($result1 as $val) {
+                                if ($val->id_ins > 0) {
+                            ?>
+                                    <?php
+                                    if ($i % 2 == 1) {
+                                    ?>
+                                        <tr>
+                                        <?php
+                                    }
+                                        ?>
                                         <td>
                                             <?php
-                                            if ($v->isActive == 1) {
+                                            if ($val->isActive == 1) {
                                             ?>
                                                 <img class="isActiveImg" src="<?= $path ?>/imageIsActive/green.png">
                                             <?php
@@ -109,11 +118,17 @@ SQL;
                                             }
                                             ?>
                                         </td>
-                                        <td>&nbsp;</td>
-                                        <td><?= $v->nom_ins ?></td>
-                                    <?php } ?>
-                                </tr>
-                            <?php } ?>
+                                        <td><?= $val->nom_ins ?></td>
+                                        <?php
+                                        if ($i % 2 == 0) {
+                                        ?>
+                                        </tr>
+                                    <?php
+                                        }
+                                    ?>
+                            <?php }
+                                $i++;
+                            } ?>
                         </table>
                     </section>
                 </section>
