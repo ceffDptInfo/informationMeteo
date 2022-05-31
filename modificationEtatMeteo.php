@@ -100,20 +100,45 @@ function action_chasseralSnow_temperature()
             SELECT temperature_bul FROM {$wpdb->prefix}bs_bulletin ORDER BY id_bul DESC LIMIT 1
 SQL;
     $result_bul = $wpdb->get_var($query);
-    ?>
-    <div>
+?>
+    <span>
         <?php echo $result_bul;
         if ($result_bul) {
-            ?>
-            °C
-            <?php
-        }
-        ?>
-    </div>
+        ?>°C
     <?php
+        }
+    ?>
+    </span>
+<?php
 }
 
 add_action('action_chasseralSnow_temp', 'action_chasseralSnow_temperature');
+
+//do action meteo
+function action_chasseralSnow_meteo()
+{
+    global $wpdb;
+    $query = <<< SQL
+            SELECT
+	            `m`.`id_met`
+            FROM
+                 `{$wpdb->prefix}bs_bulletin`
+                     AS `b`
+            LEFT JOIN
+                     `{$wpdb->prefix}bs_meteo`
+                         AS `m`
+                         ON `b`.`id_met` = `m`.`id_met`
+            ORDER BY
+                     `id_bul`
+                     DESC  LIMIT 1
+SQL;
+
+    $result_met = $wpdb->get_var($query);
+    $path = plugin_dir_url(dirname(__FILE__));
+    echo '<img src="' . $path . 'informationMeteo/imageMeteo/' . $result_met . '.png" alt="' . $result_met . '" />';
+}
+
+add_action('action_chasseralSnow_met', 'action_chasseralSnow_meteo');
 
 function chasseralSnowMeteoChangeurPluginDashboard()
 {
