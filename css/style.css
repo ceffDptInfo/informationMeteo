@@ -1,19 +1,23 @@
 .content-meteo {
     background-color: #e1001a;
-    padding: 10px;
+    padding: 4px;
 }
 
-.modal-body>p {
+.installation {
+    padding: 4px 4px 6px 4px;
+}
+
+.modal-body > p {
     display: none;
 }
 
-.content-meteo>img {
+.content-meteo > img {
     min-height: 250px;
-    max-height: 1145px
+    max-height: 1145px;
 }
 
 @media screen and (min-width: 1200px) {
-    .content-meteo>img {
+    .content-meteo > img {
         height: 250px;
         width: auto;
     }
