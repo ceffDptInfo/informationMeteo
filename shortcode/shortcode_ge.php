@@ -78,9 +78,15 @@ SQL;
                             <p>État des pistes : <?= $val->etat_pst ?></p>
                             <p>Enneigement : <?= $val->etat_nge ?></p>
                         </div>
-                        <div class="d-flex col col-xl-4">
-                            <p class="text-break">Text <?= $val->texte_bul ?></p>
-                        </div>
+                        <?php
+                        if ($val->texte_bul != "") {
+                        ?>
+                            <div class="d-flex col col-xl-4">
+                                <p class="text-break">Infos : <?= $val->texte_bul ?></p>
+                            </div>
+                        <?php
+                        }
+                        ?>
                     </section>
                     <section class="d-flex flex-column flex-xl-row bg-white installation">
                         <div class="d-flex flex-row flex-xl-column">
