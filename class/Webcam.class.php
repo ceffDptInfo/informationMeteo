@@ -27,8 +27,9 @@ class Webcam
 
     public function modificationDesAct($id_web)
     {
+        global $wpdb;
         $args['id_webCh'] = $id_web;
-        $query = "UPDATE wp_bs_webcam set `act_web` = 0 WHERE (`id_web`) = :id_webCh";
+        $query = "UPDATE {$wpdb->prefix}bs_webcam set `act_web` = 0 WHERE (`id_web`) = :id_webCh";
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($args);
@@ -40,8 +41,9 @@ class Webcam
 
     public function modificationAct($id_web)
     {
+        global $wpdb;
         $args['id_webCh'] = $id_web;
-        $query = "UPDATE wp_bs_webcam set `act_web` = 1 WHERE (`id_web`) = :id_webCh";
+        $query = "UPDATE {$wpdb->prefix}bs_webcam set `act_web` = 1 WHERE (`id_web`) = :id_webCh";
         try {
             $stmt = $this->pdo->prepare($query);
             $stmt->execute($args);
@@ -53,10 +55,11 @@ class Webcam
 
     public function modificationDef($id_web)
     {
+        global $wpdb;
         $args['id_webRa'] = $id_web;
-        $query1 = "update wp_bs_webcam set `def_web` = 0 where `id_web` = (SELECT `id_web` FROM `wp_bs_webcam` WHERE `def_web` = 1)";
-        $query2 = "UPDATE wp_bs_webcam set `def_web` = 1 WHERE (`id_web`) = :id_webRa";
-        $query3 = "UPDATE wp_bs_webcam set `act_web` = 0 WHERE (`def_web`) = 1";
+        $query1 = "update {$wpdb->prefix}bs_webcam set `def_web` = 0 where `id_web` = (SELECT `id_web` FROM `{$wpdb->prefix}bs_webcam` WHERE `def_web` = 1)";
+        $query2 = "UPDATE {$wpdb->prefix}bs_webcam set `def_web` = 1 WHERE (`id_web`) = :id_webRa";
+        $query3 = "UPDATE {$wpdb->prefix}bs_webcam set `act_web` = 0 WHERE (`def_web`) = 1";
         try {
             $stmt = $this->pdo->prepare($query1);
             $stmt2 = $this->pdo->prepare($query2);

@@ -20,42 +20,49 @@ jQuery(document).ready(function ($) {
     }
 
     $('.radioWebClass').children().on('change', function () {
-            $id_webRa = this.id;
+        $id_webRa = this.id;
         console.log("Here1");
-            $.post(
-                '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
-                Date.now(),
-                {
-                    id_webRa: $id_webRa,
-                    id_webRaChange: "changed"
-                },
-                function (data) {
-                    $(".check_webcam").prop("disabled", "");
-                    $("#webcamId_" + data.id_webRa + " .check_webcam").prop("disabled", "true");
-                    $("#webcamId_" + data.id_webRa + " .check_webcam").prop("checked", "");
-                    $( "#webcamSelectId" ).load(window.location.href + " #webcamSelectId" );
-                }
-            );
-        });
+        $.post(
+            '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
+            Date.now(),
+            {
+                id_webRa: $id_webRa,
+                id_webRaChange: "changed"
+            },
+            function (data) {
+                $(".check_webcam").prop("disabled", "");
+                $("#webcamId_" + data.id_webRa + " .check_webcam").prop("disabled", "true");
+                $("#webcamId_" + data.id_webRa + " .check_webcam").prop("checked", "");
+                $("#webcamSelectId").load(window.location.href + " #webcamSelectId");
+            }
+        );
+    });
 
     $('.checkBoxWebClass')
         .children()
         .on('click', function () {
-            if ($(this).is(':checked')) {
-                $checkInAc = 'checked';
-            } else {
-                $checkInAc = 'notChecked';
-            }
-            $id_webCh = this.id;
-            $.post(
-                '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
-                Date.now(),
-                {
-                    id_webCh: $id_webCh,
-                    chWeb: $checkInAc
+                if ($(this).is(':checked')) {
+                    $checkInAc = 'checked';
+                } else {
+                    $checkInAc = 'notChecked';
                 }
-            );
-        });
+                $id_webCh = this.id;
+                $.post(
+                    '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
+                    Date.now(),
+                    {
+                        id_webCh: $id_webCh,
+                        chWeb: $checkInAc
+                    },
+                    function (data) {
+                        $(".check_webcam").prop("disabled", "");
+                        $("#webcamId_" + data.id_webRa + " .check_webcam").prop("disabled", "true");
+                        $("#webcamId_" + data.id_webRa + " .check_webcam").prop("checked", "");
+                        $("#webcamSelectId").load(window.location.href + " #webcamSelectId");
+                    }
+                );
+            }
+        );
 
     $('#datePicker').on('change', function () {
         var str = $('#datePicker').val();

@@ -35,6 +35,7 @@ class BulletinMeteo
     }
 
     public function add($tab){
+        global $wpdb;
         $args['heure_bul'] = $tab['heure_bul'];
         $args['date_bul'] = $tab['date_bul'];
         $args['temperature_bul'] = $tab['temperature_bul'];
@@ -44,7 +45,7 @@ class BulletinMeteo
         $args['id_web'] = $tab['id_web'];
         $args['texte_bul'] = $tab['texte_bul'];
 
-        $query= "INSERT INTO wp_bs_bulletin (`heure_bul`, `date_bul`, `temperature_bul`, `id_met`, `id_pst`, `id_nge`, `id_web`, `texte_bul`) VALUES
+        $query= "INSERT INTO {$wpdb->prefix}bs_bulletin (`heure_bul`, `date_bul`, `temperature_bul`, `id_met`, `id_pst`, `id_nge`, `id_web`, `texte_bul`) VALUES
                                             (:heure_bul, :date_bul, :temperature_bul, :id_met, :id_pst, :id_nge, :id_web, :texte_bul)";
         try {
             $stmt = $this->pdo->prepare($query);

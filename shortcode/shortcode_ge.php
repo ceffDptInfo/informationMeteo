@@ -21,7 +21,7 @@ if (!function_exists('shortcode_chasseralSnow_general')) {
                     `{$wpdb->prefix}bs_webcam` AS `w`
                         ON `b`.`id_web` = `w`.`id_web`
             ORDER BY
-                     `b`.`id_bul`
+                     `b`.`id_bul` 
                         DESC LIMIT 1
 SQL;
 
@@ -41,6 +41,7 @@ SQL;
                     ) AS `date_ins`
                 FROM `{$wpdb->prefix}bs_installations_active`
                 GROUP BY `id_ins`
+                order by `id_ins` asc
             ) AS `ia`
             ON `i`.`id_ins` = `ia`.`id_ins`;
 SQL;
