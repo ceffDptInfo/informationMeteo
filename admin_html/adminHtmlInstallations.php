@@ -48,13 +48,13 @@ $result_ins = $wpdb->get_results($query1);
                            for="<?= $val->id_ins ?>"><?= $val->nom_ins ?></label>
                 </div>
                 <div class="col-2">
-                    <?php if ($val->isActive == 1) {?>
+                    <?php if ($val->isActive != 1) {?>
                         <input class="form-check-input checkBoxInstallationInput" type="checkbox"
-                               id="<?= $val->id_ins ?>" checked>
+                               id="<?= $val->id_ins ?>" >
                         <?php
                     } else { ?>
                         <input class="form-check-input checkBoxInstallationInput" type="checkbox"
-                               id="<?= $val->id_ins ?>">
+                               id="<?= $val->id_ins ?>" checked>
                         <?php
                     }
                     ?>

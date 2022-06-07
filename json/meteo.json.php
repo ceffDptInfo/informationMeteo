@@ -20,4 +20,4 @@ $bulAddDB = array (
 );
 $bul->add($bulAddDB);
 
-//echo json_encode($bulAddDB);
+echo json_encode($bulAddDB);

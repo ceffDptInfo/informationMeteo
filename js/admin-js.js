@@ -19,10 +19,9 @@ jQuery(document).ready(function ($) {
         $('#neigeSelect').val(0);
     }
 
-    $('.radioWebClass')
-        .children()
-        .on('change', function () {
+    $('.radioWebClass').children().on('change', function () {
             $id_webRa = this.id;
+        console.log("Here1");
             $.post(
                 '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
                 Date.now(),
