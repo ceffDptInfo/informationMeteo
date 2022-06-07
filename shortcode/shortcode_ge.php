@@ -67,10 +67,10 @@ SQL;
                     </div>
                     <section class="d-flex mb-1 p-1 gap-2 flex-row bg-white">
                         <div class="flex-column d-none d-xl-flex">
-                            <p><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
-                            <div>
-                                <img class="w-auto" src="<?= $path ?>imageMeteo/<?= $val->id_met ?>.png">
-                                <span><?= $val->temperature_bul ?>°</span>
+                            <p class="mb-0"><?= "Météo à " . date('H:i', strtotime($val->heure_bul)); ?></p>
+                            <div class="text-center">
+                                <img class="w-50" src="<?= $path ?>imageMeteo/<?= $val->id_met ?>.png">
+                                <div><?= $val->temperature_bul ?>°</div>
                             </div>
                         </div>
                         <div class="flex-row">
