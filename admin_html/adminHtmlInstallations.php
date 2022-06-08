@@ -20,10 +20,10 @@ $query1 = <<< SQL
                         NULL
                     ) AS `date_ins`
                 FROM `{$wpdb->prefix}bs_installations_active`
-                GROUP BY `id_ins` 
-                order by `id_ins` asc 
+                GROUP BY `id_ins`
             ) AS `ia`
-            ON `i`.`id_ins` = `ia`.`id_ins`;
+            ON `i`.`id_ins` = `ia`.`id_ins`
+            ORDER BY `i`.`id_ins`;
 SQL;
 
 $result_ins = $wpdb->get_results($query1);
@@ -32,16 +32,16 @@ $result_ins = $wpdb->get_results($query1);
     <div class="row">
         <h2 class="bulletinInstallationTitreClass">Installations</h2>
         <?php
-        foreach ($result_ins as $val) {?>
+        foreach ($result_ins as $val) { ?>
             <div class="row">
                 <div class="form-check form-switch col">
                     <label id="installationText<?= $val->id_ins ?>" class="form-check-label installationTextClass"
                            for="<?= $val->id_ins ?>"><?= $val->nom_ins ?></label>
                 </div>
                 <div class="col-2">
-                    <?php if ($val->isActive != 1) {?>
+                    <?php if ($val->isActive != 1) { ?>
                         <input class="form-check-input checkBoxInstallationInput" type="checkbox"
-                               id="<?= $val->id_ins ?>" >
+                               id="<?= $val->id_ins ?>">
                         <?php
                     } else { ?>
                         <input class="form-check-input checkBoxInstallationInput" type="checkbox"

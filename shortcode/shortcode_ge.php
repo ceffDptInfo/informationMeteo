@@ -41,9 +41,9 @@ SQL;
                     ) AS `date_ins`
                 FROM `{$wpdb->prefix}bs_installations_active`
                 GROUP BY `id_ins`
-                order by `id_ins` asc
             ) AS `ia`
-            ON `i`.`id_ins` = `ia`.`id_ins`;
+            ON `i`.`id_ins` = `ia`.`id_ins`
+            ORDER BY `i`.`id_ins`;
 SQL;
         $result = $wpdb->get_results($query);
         $result1 = $wpdb->get_results($query1);
@@ -81,11 +81,11 @@ SQL;
                         </div>
                         <?php
                         if ($val->texte_bul != "") {
-                        ?>
+                            ?>
                             <div class="d-flex col col-xl-4">
                                 <p class="text-break">Infos : <?= $val->texte_bul ?></p>
                             </div>
-                        <?php
+                            <?php
                         }
                         ?>
                     </section>
@@ -99,42 +99,42 @@ SQL;
                             $i = 0;
                             foreach ($result1 as $val) {
                                 if ($val->id_ins > 0) {
-                            ?>
+                                    ?>
                                     <?php
                                     if ($i % 2 == 1) {
-                                    ?>
+                                        ?>
                                         <tr>
                                         <?php
                                     }
-                                        ?>
-                                        <td>
-                                            <?php
-                                            if ($val->isActive == 1) {
-                                            ?>
-                                                <img class="isActiveImg" src="<?= $path ?>/imageIsActive/green.png">
-                                            <?php
-                                            } else { ?>
-                                                <img class="isActiveImg" src="<?= $path ?>/imageIsActive/red.png">
-                                            <?php
-                                            }
-                                            ?>
-                                        </td>
-                                        <td><?= $val->nom_ins ?></td>
+                                    ?>
+                                    <td>
                                         <?php
-                                        if ($i % 2 == 0) {
+                                        if ($val->isActive == 1) {
+                                            ?>
+                                            <img class="isActiveImg" src="<?= $path ?>/imageIsActive/green.png">
+                                            <?php
+                                        } else { ?>
+                                            <img class="isActiveImg" src="<?= $path ?>/imageIsActive/red.png">
+                                            <?php
+                                        }
+                                        ?>
+                                    </td>
+                                    <td><?= $val->nom_ins ?></td>
+                                    <?php
+                                    if ($i % 2 == 0) {
                                         ?>
                                         </tr>
-                                    <?php
-                                        }
+                                        <?php
+                                    }
                                     ?>
-                            <?php }
+                                <?php }
                                 $i++;
                             } ?>
                         </table>
                     </section>
                 </section>
             </article>
-<?php
+            <?php
         }
         $output = ob_get_clean();
         return $output;

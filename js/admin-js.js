@@ -54,12 +54,7 @@ jQuery(document).ready(function ($) {
                         id_webCh: $id_webCh,
                         chWeb: $checkInAc
                     },
-                    function (data) {
-                        $(".check_webcam").prop("disabled", "");
-                        $("#webcamId_" + data.id_webRa + " .check_webcam").prop("disabled", "true");
-                        $("#webcamId_" + data.id_webRa + " .check_webcam").prop("checked", "");
-                        $("#webcamSelectId").load(window.location.href + " #webcamSelectId");
-                    }
+                    $("#webcamSelectId").load(window.location.href + " #webcamSelectId")
                 );
             }
         );
