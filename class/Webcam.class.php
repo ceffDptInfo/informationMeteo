@@ -57,7 +57,7 @@ class Webcam
     {
         global $wpdb;
         $args['id_webRa'] = $id_web;
-        $query1 = "update {$wpdb->prefix}bs_webcam set `def_web` = 0 where `id_web` = (SELECT `id_web` FROM `{$wpdb->prefix}bs_webcam` WHERE `def_web` = 1)";
+        $query1 = "UPDATE {$wpdb->prefix}bs_webcam set `def_web` = 0 where `id_web` NOT LIKE 0";
         $query2 = "UPDATE {$wpdb->prefix}bs_webcam set `def_web` = 1 WHERE (`id_web`) = :id_webRa";
         $query3 = "UPDATE {$wpdb->prefix}bs_webcam set `act_web` = 0 WHERE (`def_web`) = 1";
         try {

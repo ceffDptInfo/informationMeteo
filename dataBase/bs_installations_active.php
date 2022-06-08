@@ -9,9 +9,8 @@ $wpdb->query($sql);
 
 //ajouter la table
 $sql = "CREATE TABLE  $table_name(
-        id mediumint(9) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         id_ins mediumint(9),
         date_ins date,
-        UNIQUE KEY id (id)
+        UNIQUE KEY id (id_ins)
     )";
 $wpdb->query($sql);

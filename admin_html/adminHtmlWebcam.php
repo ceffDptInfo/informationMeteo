@@ -21,10 +21,10 @@ $result_web = $wpdb->get_results($queryWebcam);
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-<!--    Nom, URL, Défaut, active de chaque webcam        -->
+            <!--    Nom, URL, Défaut, active de chaque webcam        -->
             <div class="modal-body">
 
-                <div id="title" class="row geWebCamClass" >
+                <div id="title" class="row geWebCamClass">
                     <div class="col-3">
                         <label>Nom</label>
                     </div>
@@ -42,7 +42,7 @@ $result_web = $wpdb->get_results($queryWebcam);
                 <?php
                 foreach ($result_web as $val) {
                     ?>
-                    <div id="webcamId_<?= $val->id_web?>" class="row geWebCamClass" >
+                    <div id="webcamId_<?= $val->id_web ?>" class="row geWebCamClass">
                         <div class="col-3">
                             <label id="<?= $val->id_web ?>nom"><?= $val->nom_web ?></label>
                         </div>
@@ -50,28 +50,33 @@ $result_web = $wpdb->get_results($queryWebcam);
                             <label id="<?= $val->id_web ?>url"><?= $val->url_web ?></label>
                         </div>
                         <div class="col-1">
-                            <?php if ($val->def_web == 1) {?>
+                            <?php if ($val->def_web == 1) { ?>
                                 <div class="form-check radioWebClass">
-                                    <input class="form-check-input" type="radio" name="RadioAct" id="<?= $val->id_web ?>" checked>
+                                    <input class="form-check-input" type="radio" name="RadioAct"
+                                           id="<?= $val->id_web ?>" checked>
                                 </div>
-                            <?php }else{ ?>
+                            <?php } else { ?>
                                 <div class="form-check radioWebClass">
-                                    <input class="form-check-input" type="radio" name="RadioAct" id="<?= $val->id_web ?>">
+                                    <input class="form-check-input" type="radio" name="RadioAct"
+                                           id="<?= $val->id_web ?>">
                                 </div>
                             <?php } ?>
                         </div>
                         <div class="col-1">
-                            <?php if ($val->act_web == 1 && $val->def_web == 0) {?>
+                            <?php if ($val->act_web == 1 && $val->def_web == 0) { ?>
                                 <div class="form-check checkBoxWebClass">
-                                    <input class="form-check-input <?php $val->id_web ?> check_webcam" type="checkbox" value="" id="<?= $val->id_web ?>" checked>
+                                    <input class="form-check-input <?php $val->id_web ?> check_webcam" type="checkbox"
+                                           value="" id="<?= $val->id_web ?>" checked>
                                 </div>
-                            <?php }elseif ($val->def_web == 1 && $val->act_web == 0){ ?>
+                            <?php } elseif ($val->def_web == 1 && $val->act_web == 0) { ?>
                                 <div class="form-check checkBoxWebClass">
-                                    <input class="form-check-input check_webcam" type="checkbox" value="" id="<?= $val->id_web ?>" disabled>
+                                    <input class="form-check-input check_webcam" type="checkbox" value=""
+                                           id="<?= $val->id_web ?>" disabled>
                                 </div>
-                            <?php }else{ ?>
+                            <?php } else { ?>
                                 <div class="form-check checkBoxWebClass">
-                                    <input class="form-check-input check_webcam" type="checkbox" value="" id="<?= $val->id_web ?>">
+                                    <input class="form-check-input check_webcam" type="checkbox" value=""
+                                           id="<?= $val->id_web ?>">
                                 </div>
                             <?php } ?>
                         </div>

@@ -47,6 +47,7 @@ jQuery(document).ready(function ($) {
                     $checkInAc = 'notChecked';
                 }
                 $id_webCh = this.id;
+                console.log("id_webCh : "+$id_webCh);
                 $.post(
                     '../wp-content/plugins/informationMeteo/json/webcam.json.php?_=' +
                     Date.now(),
